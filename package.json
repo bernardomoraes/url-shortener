@@ -1,0 +1,34 @@
+{
+  "name": "code-enterview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "nodemon --delay 500ms ./server/index.js",
+    "test": "jest --passWithNoTests --no-cache --runInBand",
+    "test:watch": "jest --passWithNoTests --no-cache --runInBand --watch"
+  },
+  "keywords": [
+    "code",
+    "enterview",
+    "api",
+    "api-client",
+    "crawler",
+    "url-shortener"
+  ],
+  "author": "Bernardo Moraes Silva",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.2",
+    "puppeteer": "^13.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "eslint": "^8.9.0",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15"
+  }
+}
