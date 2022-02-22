@@ -1,5 +1,5 @@
-# Test Interview - Bernardo Moraes
-
+# URL Shortner
+This project aims to shorten a URL as much as possible and also make available the 100 most used urls.
 ## Core Requirements
 - [ ] Post endpoint that receives as a body param the URL to shorten and it returns as part of the response an URL with the shortest possible length.
 
