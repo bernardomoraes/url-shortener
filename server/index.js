@@ -16,5 +16,5 @@ app.listen(3000, () => {
 })
 
 // Adapter pattern to match with Liskov Substitution Principle
-app.post('/api/Shortener', ExpressRouterAdapter.adapt(urlShortenerRouter))
+app.post('/api/shortener', ExpressRouterAdapter.adapt(urlShortenerRouter))
 app.get('/:slug', ExpressRouterAdapter.adapt(urlRedirectorRouter))

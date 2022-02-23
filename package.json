@@ -1,5 +1,5 @@
 {
-  "name": "code-enterview",
+  "name": "url-shortener",
   "version": "1.0.0",
   "description": "",
   "main": "server/index.js",
@@ -10,8 +10,6 @@
     "test:watch": "jest --no-cache --runInBand --watch"
   },
   "keywords": [
-    "code",
-    "enterview",
     "api",
     "api-client",
     "crawler",

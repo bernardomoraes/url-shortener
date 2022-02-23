@@ -17,7 +17,7 @@ module.exports = class UrlShortenerRouter {
         return HttpResponse.serverError();
       }
 
-      await urlCrawler.execute(url);
+      urlCrawler.execute(url);
 
       return { statusCode: 200, body: response };
       
