@@ -38,12 +38,21 @@ describe('Url Shortner Use Cases', () => {
       sut.route(httpRequest)
       expect(urlShortnerUseCaseSpy.url).toBe(httpRequest.body.url)
     })
-    it('should shorten an URL', () => {
-      const sut = new UrlShortnerUseCase()
+    it('should shorten an URL', async () => {
+      const UrlRepositorySpy = {}
+      UrlRepositorySpy.register = jest.fn()
+      
       const url = 'http://www.google.com'
-      const { shortUrl } = sut.execute(url)
+      const sut = new UrlShortnerUseCase(UrlRepositorySpy)
+      const { shortUrl } = await sut.execute(url)
 
-      expect(shortUrl).toHaveLength(4)
+      expect(shortUrl).toBe('ed64')
+      expect(shortUrl.length).toBe(4)
+      expect(shortUrl).toMatch(/^[a-zA-Z0-9]+$/)
+      expect(UrlRepositorySpy.register).toHaveBeenCalledWith({
+        originalUrl: url,
+        shortUrl: shortUrl
+      })
     })
     it('should crawl title from original url', async () => {
 
