@@ -1,4 +1,5 @@
 const HttpResponse = require('./helpers/http-response');
+const { urlCrawler } = require('../domain/shortner')
 module.exports = class UrlShortnerRouter {
   constructor (UrlShortnerUseCase) {
     this.UrlShortnerUseCase = UrlShortnerUseCase;
@@ -11,6 +12,13 @@ module.exports = class UrlShortnerRouter {
         return HttpResponse.badRequest('Url is required');
       }
       const response = await this.UrlShortnerUseCase.execute(url)
+      
+      if (!response) {
+        return HttpResponse.serverError();
+      }
+
+      await urlCrawler.execute(url);
+
       return { statusCode: 200, body: response };
       
     } catch (error) {

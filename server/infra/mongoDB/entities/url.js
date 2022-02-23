@@ -7,6 +7,7 @@ const shortUrl = new Schema(
     originalUrl: { type: String, required: true },
     shortUrl: { type: String, unique: true},
     count: { type: Number, default: 0 },
+    title: { type: String, default: '' },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   }

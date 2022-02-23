@@ -12,6 +12,13 @@ class UrlRepository {
     const dbObject = await urlsModel.findOne({shortUrl: slug});
     return dbObject
   }
+
+  static async findAndUpdate(query, update) {
+    const dbObject = await urlsModel.findOneAndUpdate(query, update, {new: true});
+    
+    return dbObject
+  }
+
 }
 
 module.exports = UrlRepository

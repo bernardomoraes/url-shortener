@@ -9,14 +9,13 @@ class UrlShortnerUseCase {
     // something like using a crescent slicer from encoder string 
     // after verifing if the shortned url is used before and than using slice + 1
     // and verifing again util find one that's not used, but I have no time to do it.
-      const shortUrl = this.encode(this.decode(cryptojs.MD5(originalUrl).toString())).slice(0,4);
-      const urlObject = {
-        originalUrl,
-        shortUrl,
-      }
-      const dbObject = await this.UrlRepository.register(urlObject)
-      console.log('dbObject: ', dbObject);
-      
+    const shortUrl = this.encode(this.decode(cryptojs.MD5(originalUrl).toString())).slice(0,4);
+    const urlObject = {
+      originalUrl,
+      shortUrl,
+    }
+    await this.UrlRepository.register(urlObject)
+
     return {
       shortUrl
     } 
