@@ -1,13 +1,20 @@
-const UrlRepository = require('../../infra/models/url');
 const cryptojs = require('crypto-js');
 class UrlShortnerUseCase {
+  constructor (UrlRepository) {
+    this.UrlRepository = UrlRepository;
+  }
+
   async execute(originalUrl) {
+    // It's possible to have a better way to do this, 
+    // something like using a crescent slicer from encoder string 
+    // after verifing if the shortned url is used before and than using slice + 1
+    // and verifing again util find one that's not used, but I have no time to do it.
       const shortUrl = this.encode(this.decode(cryptojs.MD5(originalUrl).toString())).slice(0,4);
       const urlObject = {
         originalUrl,
         shortUrl,
       }
-      const dbObject = await UrlRepository.register(urlObject)
+      const dbObject = await this.UrlRepository.register(urlObject)
       console.log('dbObject: ', dbObject);
       
     return {

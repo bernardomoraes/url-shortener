@@ -1,7 +1,11 @@
 const UrlRepository = require('../../infra/models/url');
 class UrlRedirectorUseCase {
+  constructor (UrlRepository) {
+    this.UrlRepository = UrlRepository;
+  }
+  
   async execute(slug) {
-      const dbObject = await UrlRepository.get(slug)
+      const dbObject = await this.UrlRepository.get(slug)
       
       if (!dbObject) return
       
