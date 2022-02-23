@@ -1,4 +1,4 @@
-# Url Shortner
+# Url Shortener
 
 > ## Data
 * URL

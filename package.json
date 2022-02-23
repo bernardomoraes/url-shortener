@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --delay 500ms ./server/index.js",
     "test": "jest --passWithNoTests --no-cache --runInBand",
-    "test:watch": "jest --passWithNoTests --no-cache --runInBand --watch"
+    "test:watch": "jest --no-cache --runInBand --watch"
   },
   "keywords": [
     "code",
@@ -20,8 +20,10 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "mongodb": "^4.4.0",
     "mongoose": "^6.2.2",
     "puppeteer": "^13.3.2"
   },
