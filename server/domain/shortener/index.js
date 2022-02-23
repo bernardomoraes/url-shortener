@@ -1,10 +1,10 @@
-const urlShortner = require('./urlShortnerUseCase')
+const urlShortener = require('./urlShortenerUseCase')
 const urlRedirector = require('./urlRedirectorUseCase')
 const urlCrawler = require('./urlCrawlerUseCase')
 const UrlRepository = require('../../infra/models/url');
 
 module.exports = {
-  urlShortner: new urlShortner(UrlRepository),
+  urlShortener: new urlShortener(UrlRepository),
   urlRedirector: new urlRedirector(UrlRepository),
   urlCrawler: new urlCrawler(UrlRepository),
 }

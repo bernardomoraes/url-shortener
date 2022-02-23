@@ -1,7 +1,7 @@
-const urlShortner = require('./urlShortnerRouter')
+const urlShortener = require('./urlShortenerRouter')
 const urlRedirector = require('./urlRedirectorRouter')
 
 module.exports = {
-  urlShortner,
+  urlShortener,
   urlRedirector
 }

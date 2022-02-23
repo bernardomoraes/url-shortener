@@ -1,5 +1,5 @@
 const cryptojs = require('crypto-js');
-class UrlShortnerUseCase {
+class UrlShortenerUseCase {
   constructor (UrlRepository) {
     this.UrlRepository = UrlRepository;
   }
@@ -53,4 +53,4 @@ class UrlShortnerUseCase {
   }
 }
 
-module.exports = UrlShortnerUseCase
+module.exports = UrlShortenerUseCase

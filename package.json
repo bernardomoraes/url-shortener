@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "dev": "nodemon --delay 500ms ./server/index.js",
+    "start": "node ./server/index.js",
     "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "jest --no-cache --runInBand --watch"
   },

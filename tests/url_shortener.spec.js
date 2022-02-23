@@ -1,23 +1,23 @@
-const UrlShortnerRouter = require('../server/presentation/urlShortnerRouter')
-const UrlShortnerUseCase = require('../server/domain/shortner/urlShortnerUseCase')
+const UrlShortenerRouter = require('../server/presentation/urlShortenerRouter')
+const UrlShortenerUseCase = require('../server/domain/shortener/urlShortenerUseCase')
 
 makeSut = () => {
-  class UrlShortnerUseCaseSpy {
+  class UrlShortenerUseCaseSpy {
     async execute(url) {
       this.url = url
     }
   }
-  const urlShortnerUseCaseSpy = new UrlShortnerUseCaseSpy()
-  const sut = new UrlShortnerRouter(urlShortnerUseCaseSpy)
+  const urlShortenerUseCaseSpy = new UrlShortenerUseCaseSpy()
+  const sut = new UrlShortenerRouter(urlShortenerUseCaseSpy)
 
   return {
     sut,
-    urlShortnerUseCaseSpy
+    urlShortenerUseCaseSpy
   }
 }
 
-describe('Url Shortner Use Cases', () => {
-  describe('Shortner', () => {
+describe('Url Shortener Use Cases', () => {
+  describe('Shortener', () => {
     it('should return 400 if no URL is provided', async () => {
       const { sut } = makeSut()
       httpRequest = {
@@ -28,22 +28,22 @@ describe('Url Shortner Use Cases', () => {
       expect(httpResponse.statusCode).toBe(400)
       
     })
-    it('should call UrlShortnerUseCase with correct params', () => {
-      const { sut, urlShortnerUseCaseSpy } = makeSut()
+    it('should call UrlShortenerUseCase with correct params', () => {
+      const { sut, urlShortenerUseCaseSpy } = makeSut()
       httpRequest = {
         body : {
           url: 'http://www.google.com'
         }
       }
       sut.route(httpRequest)
-      expect(urlShortnerUseCaseSpy.url).toBe(httpRequest.body.url)
+      expect(urlShortenerUseCaseSpy.url).toBe(httpRequest.body.url)
     })
     it('should shorten an URL', async () => {
       const UrlRepositorySpy = {}
       UrlRepositorySpy.register = jest.fn()
       
       const url = 'http://www.google.com'
-      const sut = new UrlShortnerUseCase(UrlRepositorySpy)
+      const sut = new UrlShortenerUseCase(UrlRepositorySpy)
       const { shortUrl } = await sut.execute(url)
 
       expect(shortUrl).toBe('ed64')

@@ -1,8 +1,8 @@
 const HttpResponse = require('./helpers/http-response');
-const { urlCrawler } = require('../domain/shortner')
-module.exports = class UrlShortnerRouter {
-  constructor (UrlShortnerUseCase) {
-    this.UrlShortnerUseCase = UrlShortnerUseCase;
+const { urlCrawler } = require('../domain/shortener')
+module.exports = class UrlShortenerRouter {
+  constructor (UrlShortenerUseCase) {
+    this.UrlShortenerUseCase = UrlShortenerUseCase;
   }
 
   async route(httpRequest) {
@@ -11,7 +11,7 @@ module.exports = class UrlShortnerRouter {
       if (!url) {
         return HttpResponse.badRequest('Url is required');
       }
-      const response = await this.UrlShortnerUseCase.execute(url)
+      const response = await this.UrlShortenerUseCase.execute(url)
       
       if (!response) {
         return HttpResponse.serverError();
